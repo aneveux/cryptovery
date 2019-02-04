@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aneveux/project-tooling-sample.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
+
 # 🎓 Project Tooling Sample
 
 This repository contains an example of a JEE project using some industrialized tooling.
