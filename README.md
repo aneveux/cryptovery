@@ -19,7 +19,9 @@ This project is used as a resource for an university training session.
 - [Gitignore](https://www.gitignore.io/)
 - [Travis CI](http://travis-ci.org/)
 - [EditorConfig](https://editorconfig.org/)
+- [SonarCloud](https://sonarcloud.io/)
 
 ## Going further?
 
 - [SDKMan](https://sdkman.io/)
+- [SonarCloud in Travis](https://docs.travis-ci.com/user/sonarcloud/)

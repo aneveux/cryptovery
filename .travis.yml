@@ -1,12 +1,24 @@
 language: java
 sudo: false
+install: true
+
+jdk:
+  - oraclejdk8
 
 cache:
   directories:
-  - "$HOME/.m2"
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+
+addons:
+  sonarcloud:
+    organization: "aneveux-github"
+    token:
+      secure: "K9NPsDrry2t40biX5N1nwU89zBcfU3PcKSzuYi2R6blz7O7N3hKmjleoVYPtml+i6aUfJOy2T+FHOmEMAD26GGFiP7R++RFzYdZzMN4EiqZQzhtas8GLkZUV8wBhw+3BBsTYUC+77Of5LRFgf4WH6GCTHQLeKRM37KLPuuKpbUrTHDLc4mf5NG17njdOMPP7s7q40R0MOE+oKB+4x1JS3q/CkzJ9RUI4U83J8fwlGwlq+N4eNUqzSDF8OTBjvCgRvp6RxrEGYH9GsakdghphKi78xkX6z9Jv5ZWoY2lhPCBQC0NrpH9XGZm78rWkDDsUaXOS9HPoGtT2vzIYDZeCoXmj272JyHxpHDEWap8Y8bL6Xr9uhnlCZkOGjpExPO0u4MwCP9rsgPVAzC4R8msKNMopWwB4Ym5zgALeZcpYnNYNCO8HRcv/iLm6EQXiifsUR544QeKRVXueO9tyHVycQwkAe2bke8OlCJEDEHGtfSmXtdCudU51R3vgo5phcOIBJsfkpwfNOZijlSISt7O2OUUICTCQbRqzgL8bqvp1oWGfv2P7vFxwKCaBMJZIJ3Q1c+8wPFhv7nlJ7cBTP3r8mO+S7MtxayitYYrdmrNtM9NNzU00VNcBn2F6J5+tEQ9reYLgJ6zfhVVnhrxC6G8Jo2PnBojBL3nhY6P1jMD5SN0="
 
 jobs:
   include:
   - stage: build
-    jdk: oraclejdk8
     script: mvn clean install
+  - stage: analyze
+    script: mvn clean install sonar:sonar

@@ -32,6 +32,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tomee.version>8.0.0-SNAPSHOT</tomee.version>
     <version.openjpa>3.0.0</version.openjpa>
+    <sonar.projectKey>aneveux_project-tooling-sample</sonar.projectKey>
+    <sonar.organization>aneveux-github</sonar.organization>
   </properties>
 
   <repositories>
