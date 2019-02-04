@@ -1,0 +1,12 @@
+language: java
+sudo: false
+
+cache:
+  directories:
+  - "$HOME/.m2"
+
+jobs:
+  include:
+  - stage: build
+    jdk: oraclejdk8
+    script: mvn clean install
