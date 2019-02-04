@@ -23,8 +23,9 @@
 
   <groupId>org.superbiz</groupId>
   <artifactId>rest-example</artifactId>
-  <packaging>war</packaging>
   <version>8.0.0-SNAPSHOT</version>
+
+  <packaging>war</packaging>
   <name>OpenEJB :: Web Examples :: REST Example</name>
 
   <properties>
@@ -84,34 +85,6 @@
         <artifactId>tomee-embedded-maven-plugin</artifactId>
         <version>${tomee.version}</version>
       </plugin>
-      <!--
-            <plugin>
-              <groupId>org.apache.openjpa</groupId>
-              <artifactId>openjpa-maven-plugin</artifactId>
-              <version>${version.openjpa}</version>
-              <configuration>
-                <includes>org/superbiz/rest/model/*.class</includes>
-                <addDefaultConstructor>true</addDefaultConstructor>
-                <enforcePropertyRestrictions>true</enforcePropertyRestrictions>
-              </configuration>
-              <executions>
-                <execution>
-                  <id>enhancer</id>
-                  <phase>process-classes</phase>
-                  <goals>
-                    <goal>enhance</goal>
-                  </goals>
-                </execution>
-              </executions>
-              <dependencies>
-                <dependency>
-                  <groupId>org.apache.openjpa</groupId>
-                  <artifactId>openjpa</artifactId>
-                  <version>${version.openjpa}</version>
-                </dependency>
-              </dependencies>
-            </plugin>
-      -->
     </plugins>
   </build>
 
@@ -168,20 +141,4 @@
       <version>2.5.1</version>
     </dependency>
   </dependencies>
-
-  <!--
-  This section allows you to configure where to publish libraries for sharing.
-  It is not required and may be deleted.  For more information see:
-  http://maven.apache.org/plugins/maven-deploy-plugin/
-  -->
-  <distributionManagement>
-    <repository>
-      <id>local-release-repo</id>
-      <url>file://${project.build.outputDirectory}/repo/</url>
-    </repository>
-    <snapshotRepository>
-      <id>local-snapshot-repo</id>
-      <url>file://${project.build.outputDirectory}/repo/</url>
-    </snapshotRepository>
-  </distributionManagement>
 </project>
