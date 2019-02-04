@@ -16,6 +16,7 @@ This project is used as a resource for an university training session.
 - [Gitmoji](https://gitmoji.carloscuesta.me/)
 - [Gitignore](https://www.gitignore.io/)
 - [Travis CI](http://travis-ci.org/)
+- [EditorConfig](https://editorconfig.org/)
 
 ## Going further?
 
