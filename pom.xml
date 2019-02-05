@@ -58,6 +58,12 @@
           <name>aneveux-maven</name>
           <url>https://api.bintray.com/maven/aneveux/maven/project-tooling-sample/;publish=1</url>
       </repository>
+      <!-- https://www.jfrog.com/confluence/display/RTF/Deploying+Snapshots+to+oss.jfrog.org -->
+      <snapshotRepository>
+          <id>bintray-aneveux-maven</id>
+          <name>jfrog-oss-snapshots</name>
+          <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+      </snapshotRepository>
   </distributionManagement>
 
   <build>
