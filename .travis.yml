@@ -22,3 +22,5 @@ jobs:
     script: mvn clean install
   - stage: analyze
     script: mvn clean install sonar:sonar
+  - stage: deploy
+    script: mvn deploy --settings settings.xml
