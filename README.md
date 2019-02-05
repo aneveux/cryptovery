@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/aneveux/project-tooling-sample.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=aneveux_project-tooling-sample&metric=alert_status)](https://sonarcloud.io/dashboard?id=aneveux_project-tooling-sample)
 
 # 🎓 Project Tooling Sample
 
