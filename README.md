@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/aneveux/project-tooling-sample.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=aneveux_project-tooling-sample&metric=alert_status)](https://sonarcloud.io/dashboard?id=aneveux_project-tooling-sample)
+[ ![Download](https://api.bintray.com/packages/aneveux/maven/project-tooling-sample/images/download.svg) ](https://bintray.com/aneveux/maven/project-tooling-sample/_latestVersion)
 
 # 🎓 Project Tooling Sample
 
@@ -22,6 +23,7 @@ This project is used as a resource for an university training session.
 - [EditorConfig](https://editorconfig.org/)
 - [SonarCloud](https://sonarcloud.io/)
 - [Choose A License](https://choosealicense.com/)
+- [Bintray](https://bintray.com/)
 
 ## Going further?
 
