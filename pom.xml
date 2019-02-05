@@ -122,6 +122,7 @@
         <version.openjpa>3.0.0</version.openjpa>
         <sonar.projectKey>aneveux_project-tooling-sample</sonar.projectKey>
         <sonar.organization>aneveux-github</sonar.organization>
+        <docker.buildArg.WAR_LOCATION>target/${project.build.finalName}.war</docker.buildArg.WAR_LOCATION>
     </properties>
 
     <!-- DEPENDENCIES -->
@@ -296,6 +297,25 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- MANAGING DOCKER IMAGE FROM MAVEN -->
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.28.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>%g/%a:%l</name>
+                            <build>
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                <tags>
+                                    <tag>${project.version}</tag>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
             </plugin>
         </plugins>
     </build>
