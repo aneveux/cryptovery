@@ -24,6 +24,7 @@ This project is used as a resource for an university training session.
 - [SonarCloud](https://sonarcloud.io/)
 - [Choose A License](https://choosealicense.com/)
 - [Bintray](https://bintray.com/)
+- [Maven License Plugin](http://code.mycila.com/license-maven-plugin/)
 
 ## Going further?
 

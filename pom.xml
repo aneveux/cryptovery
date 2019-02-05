@@ -28,6 +28,16 @@
   <packaging>war</packaging>
   <name>OpenEJB :: Web Examples :: REST Example</name>
 
+    <!-- LICENSE -->
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tomee.version>8.0.0-SNAPSHOT</tomee.version>
@@ -101,6 +111,44 @@
         <artifactId>tomee-embedded-maven-plugin</artifactId>
         <version>${tomee.version}</version>
       </plugin>
+        <!-- AUTOMATED LICENSE HEADER -->
+        <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <version>3.0</version>
+            <configuration>
+                <basedir>${basedir}</basedir>
+                <header>assets/header.txt</header>
+                <quiet>false</quiet>
+                <failIfMissing>true</failIfMissing>
+                <aggregate>true</aggregate>
+                <strictCheck>true</strictCheck>
+                <includes>
+                    <include>**/src/**</include>
+                </includes>
+                <useDefaultExcludes>true</useDefaultExcludes>
+                <mapping>
+                    <ecmd>XML_STYLE</ecmd>
+                    <mwe>XML_STYLE</mwe>
+                    <ext>SLASHSTAR_STYLE</ext>
+                    <xpt>XML_STYLE</xpt>
+                    <java>SLASHSTAR_STYLE</java>
+                    <kt>SLASHSTAR_STYLE</kt>
+                    <aj>SLASHSTAR_STYLE</aj>
+                    <properties>SCRIPT_STYLE</properties>
+                    <xml>XML_STYLE</xml>
+                </mapping>
+                <useDefaultMapping>false</useDefaultMapping>
+                <encoding>UTF-8</encoding>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
   </build>
 
