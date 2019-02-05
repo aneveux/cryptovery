@@ -25,6 +25,7 @@ This project is used as a resource for an university training session.
 - [Choose A License](https://choosealicense.com/)
 - [Bintray](https://bintray.com/)
 - [Maven License Plugin](http://code.mycila.com/license-maven-plugin/)
+- [Docker](https://www.docker.com/)
 
 ## Going further?
 
@@ -35,3 +36,5 @@ This project is used as a resource for an university training session.
 
 - `mvn license:format` - updates licenses' headers on all files
 - `mvn tomee:run` - starts a local tomee server with the project (accessible at `http://localhost:8080/rest-example/`)
+- `docker build . -t test/rest-example:latest` - builds locally a docker image from the `Dockerfile`
+- `docker run -p 8888:8080 test/rest-example:latest` - runs the previously built docker image (accessible at `http://localhost:8888/rest-example`)
