@@ -14,10 +14,10 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package org.superbiz.rest.service;
+package com.github.aneveux.rest.service;
 
-import org.superbiz.rest.dao.PostDAO;
-import org.superbiz.rest.model.Post;
+import com.github.aneveux.rest.dao.PostDAO;
+import com.github.aneveux.rest.model.Post;
 
 import javax.ejb.EJB;
 import javax.ws.rs.DELETE;

@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.superbiz.rest.batcher;
+package com.github.aneveux.rest.batcher;
 
-import org.superbiz.rest.dao.CommentDAO;
-import org.superbiz.rest.dao.PostDAO;
-import org.superbiz.rest.dao.UserDAO;
-import org.superbiz.rest.model.Post;
-import org.superbiz.rest.model.User;
+import com.github.aneveux.rest.dao.CommentDAO;
+import com.github.aneveux.rest.dao.PostDAO;
+import com.github.aneveux.rest.dao.UserDAO;
+import com.github.aneveux.rest.model.Post;
+import com.github.aneveux.rest.model.User;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.DependsOn;

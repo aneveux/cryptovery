@@ -14,14 +14,14 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package org.superbiz.rest.service;
 
-import org.superbiz.rest.dao.UserDAO;
-import org.superbiz.rest.model.User;
+package com.github.aneveux.rest.service;
+
+import com.github.aneveux.rest.dao.CommentDAO;
+import com.github.aneveux.rest.model.Comment;
 
 import javax.ejb.EJB;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -31,46 +31,38 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.util.List;
 
-@Path("/api/user")
+@Path("/api/comment")
 @Produces({"text/xml", "application/json"})
-public class UserService {
+public class CommentService {
 
     @EJB
-    private UserDAO dao;
+    private CommentDAO commentDao;
 
     @Path("/create")
     @PUT
-    public User create(@QueryParam("name") String name,
-                       @QueryParam("pwd") String pwd,
-                       @QueryParam("mail") String mail) {
-        return dao.create(name, pwd, mail);
+    public Comment create(@QueryParam("author") String author,
+                          @QueryParam("content") String content,
+                          @QueryParam("postId") long postId) {
+        return commentDao.create(author, content, postId);
     }
 
-    @Path("/list")
+    @Path("/list/{postId}")
     @GET
-    public List<User> list(@QueryParam("first") @DefaultValue("0") int first,
-                           @QueryParam("max") @DefaultValue("20") int max) {
-        return dao.list(first, max);
-    }
-
-    @Path("/show/{id}")
-    @GET
-    public User show(@PathParam("id") long id) {
-        return dao.find(id);
+    public List<Comment> list(@PathParam("postId") long postId) {
+        return commentDao.list(postId);
     }
 
     @Path("/delete/{id}")
     @DELETE
     public void delete(@PathParam("id") long id) {
-        dao.delete(id);
+        commentDao.delete(id);
     }
 
     @Path("/update/{id}")
     @POST
-    public User update(@PathParam("id") long id,
-                       @QueryParam("name") String name,
-                       @QueryParam("pwd") String pwd,
-                       @QueryParam("mail") String mail) {
-        return dao.update(id, name, pwd, mail);
+    public Comment update(@PathParam("id") long id,
+                          @QueryParam("author") String author,
+                          @QueryParam("content") String content) {
+        return commentDao.update(id, author, content);
     }
 }

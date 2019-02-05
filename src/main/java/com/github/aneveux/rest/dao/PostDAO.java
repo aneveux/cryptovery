@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.superbiz.rest.dao;
+package com.github.aneveux.rest.dao;
 
-import org.superbiz.rest.model.Post;
-import org.superbiz.rest.model.User;
+import com.github.aneveux.rest.model.Post;
+import com.github.aneveux.rest.model.User;
 
 import javax.ejb.Lock;
 import javax.ejb.LockType;

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.superbiz.rest.dao;
+package com.github.aneveux.rest.dao;
 
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.tomee.embedded.EmbeddedTomEEContainer;
@@ -22,7 +22,7 @@ import org.apache.ziplock.Archive;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.superbiz.rest.model.User;
+import com.github.aneveux.rest.model.User;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
