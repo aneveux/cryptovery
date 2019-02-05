@@ -30,3 +30,8 @@ This project is used as a resource for an university training session.
 
 - [SDKMan](https://sdkman.io/)
 - [SonarCloud in Travis](https://docs.travis-ci.com/user/sonarcloud/)
+
+## Useful commands
+
+- `mvn license:format` - updates licenses' headers on all files
+- `mvn tomee:run` - starts a local tomee server with the project (accessible at `http://localhost:8080/rest-example/`)
