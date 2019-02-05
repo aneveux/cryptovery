@@ -21,6 +21,7 @@ This project is used as a resource for an university training session.
 - [Travis CI](http://travis-ci.org/)
 - [EditorConfig](https://editorconfig.org/)
 - [SonarCloud](https://sonarcloud.io/)
+- [Choose A License](https://choosealicense.com/)
 
 ## Going further?
 
