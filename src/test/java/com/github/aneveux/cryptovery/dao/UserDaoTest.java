@@ -16,36 +16,39 @@
  */
 package com.github.aneveux.cryptovery.dao;
 
-import com.github.aneveux.cryptovery.dao.UserDAO;
+import static org.junit.Assert.assertNotNull;
+
+import com.github.aneveux.cryptovery.model.User;
+import javax.ejb.embeddable.EJBContainer;
+import javax.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.github.aneveux.cryptovery.model.User;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.NamingException;
-
-import static org.junit.Assert.assertNotNull;
 
 public class UserDaoTest {
 
     private static EJBContainer container;
+
 
     @BeforeClass
     public static void start() {
         container = EJBContainer.createEJBContainer();
     }
 
+
     @AfterClass
     public static void stop() {
-        if (container != null) {
+        if(container != null) {
             container.close();
         }
     }
 
+
     @Test
-    public void create() throws NamingException {
-        final UserDAO dao = (UserDAO) container.getContext().lookup("java:global/project-tooling-sample/UserDAO");
+    public void create()
+        throws NamingException {
+        final UserDAO dao = (UserDAO) container.getContext()
+                                               .lookup("java:global/cryptovery/UserDAO");
         final User user = dao.create("foo", "dummy", "foo@bar.org");
         assertNotNull(dao.find(user.getId()));
     }

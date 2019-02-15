@@ -47,7 +47,7 @@ public class UserServiceTest {
     public static void start() throws IOException {
         final File webApp = Archive.archive().copyTo("WEB-INF/classes", jarLocation(UserDAO.class)).asDir();
         final Properties p = new Properties();
-        p.setProperty(EJBContainer.APP_NAME, "rest-example");
+        p.setProperty(EJBContainer.APP_NAME, "cryptovery");
         p.setProperty(EJBContainer.PROVIDER, "tomee-embedded"); // need web feature
         p.setProperty(EJBContainer.MODULES, webApp.getAbsolutePath());
         p.setProperty(EmbeddedTomEEContainer.TOMEE_EJBCONTAINER_HTTP_PORT, "-1"); // random port
@@ -63,11 +63,11 @@ public class UserServiceTest {
 
     @Test
     public void create() throws NamingException {
-        final UserDAO dao = (UserDAO) container.getContext().lookup("java:global/rest-example/UserDAO");
+        final UserDAO dao = (UserDAO) container.getContext().lookup("java:global/cryptovery/UserDAO");
         final User user = dao.create("foo", "dummy", "foo@dummy.org");
         assertNotNull(dao.find(user.getId()));
 
-        final String uri = "http://127.0.0.1:" + System.getProperty(EmbeddedTomEEContainer.TOMEE_EJBCONTAINER_HTTP_PORT) + "/rest-example";
+        final String uri = "http://127.0.0.1:" + System.getProperty(EmbeddedTomEEContainer.TOMEE_EJBCONTAINER_HTTP_PORT) + "/cryptovery";
         final UserServiceClientAPI client = JAXRSClientFactory.create(uri, UserServiceClientAPI.class);
         final User retrievedUser = client.show(user.getId());
         assertNotNull(retrievedUser);
