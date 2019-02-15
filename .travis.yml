@@ -19,8 +19,10 @@ addons:
 jobs:
   include:
   - stage: build
-    script: mvn clean install
+    script: mvn clean install -B -V
   - stage: analyze
-    script: mvn clean install sonar:sonar
+    script: mvn package sonar:sonar -B -V -DskipTests=true
   - stage: deploy
-    script: mvn deploy --settings settings.xml
+    script: mvn deploy --settings settings.xml -DskipTests=true
+  - stage: dockerize
+    script: mvn package fabric8:build fabric8:push -B -V -DskipTests=true

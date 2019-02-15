@@ -336,20 +336,23 @@
             <!-- MANAGING DOCKER IMAGE FROM MAVEN -->
             <plugin>
                 <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.28.0</version>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>4.0.0-M2</version>
                 <configuration>
                     <images>
                         <image>
                             <name>%g/%a:%l</name>
                             <build>
                                 <dockerFile>${project.basedir}/Dockerfile</dockerFile>
-                                <tags>
-                                    <tag>${project.version}</tag>
-                                </tags>
                             </build>
                         </image>
                     </images>
+                    <authConfig>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <username>${env.DOCKER_USERNAME}</username>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <password>${env.DOCKER_KEY}</password>
+                    </authConfig>
                 </configuration>
             </plugin>
         </plugins>

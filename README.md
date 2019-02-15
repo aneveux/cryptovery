@@ -26,7 +26,8 @@ This project is used as a resource for an university training session.
 - [Bintray](https://bintray.com/)
 - [Maven License Plugin](http://code.mycila.com/license-maven-plugin/)
 - [Docker](https://www.docker.com/)
-- [Docker Maven Integration](https://dmp.fabric8.io/)
+- [Fabric8](http://maven.fabric8.io/)
+- [Docker Hub](https://cloud.docker.com/repository/docker/aneveux/cryptovery/)
 
 ## Going further?
 
@@ -39,4 +40,4 @@ This project is used as a resource for an university training session.
 - `mvn tomee:run` - starts a local tomee server with the project (accessible at `http://localhost:8080/rest-example/`)
 - `docker build . -t test/rest-example:latest --build-arg WAR_LOCATION=target/rest-example.war` - builds locally a docker image from the `Dockerfile`
 - `docker run -p 8888:8080 test/rest-example:latest` - runs the previously built docker image (accessible at `http://localhost:8888/rest-example`)
-- `mvn clean package docker:build` - builds a docker image directly from Maven using your Dockerfile and the result of your Maven build
+- `mvn clean package fabric8:build` - builds a docker image directly from Maven using your Dockerfile and the result of your Maven build
