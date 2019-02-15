@@ -188,6 +188,30 @@
         <finalName>${project.artifactId}</finalName>
         <defaultGoal>package</defaultGoal>
         <plugins>
+            <!-- BUILD HELPER -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <!-- sets the only.when.is.snapshot.used property to true if SNAPSHOT was used,
+                            to the project version otherwise -->
+                        <id>build-helper-regex-is-snapshot-used</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>is.snapshot</name>
+                            <value>${project.version}</value>
+                            <regex>.*-SNAPSHOT</regex>
+                            <replacement>true</replacement>
+                            <failIfNoMatch>false</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- COMPILER CONFIGURATION -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -196,6 +220,17 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- DEPLOYER CONFIGURATION -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <!-- skip when version is SNAPSHOT -->
+                    <!--suppress UnresolvedMavenProperty -->
+                    <skip>${is.snapshot}</skip>
                 </configuration>
             </plugin>
             <!-- WAR CONFIGURATION -->
