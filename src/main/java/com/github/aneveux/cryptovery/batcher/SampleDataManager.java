@@ -14,13 +14,13 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.github.aneveux.rest.batcher;
+package com.github.aneveux.cryptovery.batcher;
 
-import com.github.aneveux.rest.dao.CommentDAO;
-import com.github.aneveux.rest.dao.PostDAO;
-import com.github.aneveux.rest.dao.UserDAO;
-import com.github.aneveux.rest.model.Post;
-import com.github.aneveux.rest.model.User;
+import com.github.aneveux.cryptovery.dao.CommentDAO;
+import com.github.aneveux.cryptovery.dao.PostDAO;
+import com.github.aneveux.cryptovery.dao.UserDAO;
+import com.github.aneveux.cryptovery.model.Post;
+import com.github.aneveux.cryptovery.model.User;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.DependsOn;

@@ -14,10 +14,10 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.github.aneveux.rest.service;
+package com.github.aneveux.cryptovery.service;
 
-import com.github.aneveux.rest.dao.UserDAO;
-import com.github.aneveux.rest.model.User;
+import com.github.aneveux.cryptovery.dao.PostDAO;
+import com.github.aneveux.cryptovery.model.Post;
 
 import javax.ejb.EJB;
 import javax.ws.rs.DELETE;
@@ -31,31 +31,31 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.util.List;
 
-@Path("/api/user")
+@Path("/api/post")
 @Produces({"text/xml", "application/json"})
-public class UserService {
+public class PostService {
 
     @EJB
-    private UserDAO dao;
+    private PostDAO dao;
 
     @Path("/create")
     @PUT
-    public User create(@QueryParam("name") String name,
-                       @QueryParam("pwd") String pwd,
-                       @QueryParam("mail") String mail) {
-        return dao.create(name, pwd, mail);
+    public Post create(@QueryParam("title") String title,
+                       @QueryParam("content") String content,
+                       @QueryParam("userId") long userId) {
+        return dao.create(title, content, userId);
     }
 
     @Path("/list")
     @GET
-    public List<User> list(@QueryParam("first") @DefaultValue("0") int first,
+    public List<Post> list(@QueryParam("first") @DefaultValue("0") int first,
                            @QueryParam("max") @DefaultValue("20") int max) {
         return dao.list(first, max);
     }
 
     @Path("/show/{id}")
     @GET
-    public User show(@PathParam("id") long id) {
+    public Post show(@PathParam("id") long id) {
         return dao.find(id);
     }
 
@@ -67,10 +67,10 @@ public class UserService {
 
     @Path("/update/{id}")
     @POST
-    public User update(@PathParam("id") long id,
-                       @QueryParam("name") String name,
-                       @QueryParam("pwd") String pwd,
-                       @QueryParam("mail") String mail) {
-        return dao.update(id, name, pwd, mail);
+    public Post update(@PathParam("id") long id,
+                       @QueryParam("userId") long userId,
+                       @QueryParam("title") String title,
+                       @QueryParam("content") String content) {
+        return dao.update(id, userId, title, content);
     }
 }

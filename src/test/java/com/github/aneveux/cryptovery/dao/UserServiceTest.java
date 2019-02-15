@@ -14,15 +14,16 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.github.aneveux.rest.dao;
+package com.github.aneveux.cryptovery.dao;
 
+import com.github.aneveux.cryptovery.dao.UserDAO;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.tomee.embedded.EmbeddedTomEEContainer;
 import org.apache.ziplock.Archive;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.github.aneveux.rest.model.User;
+import com.github.aneveux.cryptovery.model.User;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;

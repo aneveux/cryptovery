@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/aneveux/project-tooling-sample.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=aneveux_project-tooling-sample&metric=alert_status)](https://sonarcloud.io/dashboard?id=aneveux_project-tooling-sample)
-[ ![Download](https://api.bintray.com/packages/aneveux/maven/project-tooling-sample/images/download.svg) ](https://bintray.com/aneveux/maven/project-tooling-sample/_latestVersion)
+[![Build Status](https://travis-ci.org/aneveux/cryptovery.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cryptovery&metric=alert_status)](https://sonarcloud.io/dashboard?id=cryptovery)
+[ ![Download](https://api.bintray.com/packages/aneveux/maven/cryptovery/images/download.svg) ](https://bintray.com/aneveux/maven/cryptovery/_latestVersion)
 
-# 🎓 Project Tooling Sample
+# :memo::key: Cryptovery
 
 This repository contains an example of a JEE project using some industrialized tooling.
 

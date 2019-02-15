@@ -14,10 +14,10 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.github.aneveux.rest.dao;
+package com.github.aneveux.cryptovery.dao;
 
-import com.github.aneveux.rest.model.Comment;
-import com.github.aneveux.rest.model.Post;
+import com.github.aneveux.cryptovery.model.Comment;
+import com.github.aneveux.cryptovery.model.Post;
 import java.util.Collections;
 import java.util.List;
 import javax.ejb.Lock;

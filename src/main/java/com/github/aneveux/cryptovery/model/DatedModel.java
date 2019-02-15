@@ -14,7 +14,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.github.aneveux.rest.model;
+package com.github.aneveux.cryptovery.model;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
