@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/aneveux/cryptovery.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cryptovery&metric=alert_status)](https://sonarcloud.io/dashboard?id=cryptovery)
 [ ![Download](https://api.bintray.com/packages/aneveux/maven/cryptovery/images/download.svg) ](https://bintray.com/aneveux/maven/cryptovery/_latestVersion)
+![](https://img.shields.io/docker/pulls/aneveux/cryptovery.svg?style=flat)
 
 # :memo::key: Cryptovery
 
