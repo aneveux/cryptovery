@@ -16,27 +16,29 @@
  */
 package com.github.aneveux.cryptovery.dao;
 
-import static org.junit.Assert.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.github.aneveux.cryptovery.model.User;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 
 public class UserDaoTest {
 
     private static EJBContainer container;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void start() {
         container = EJBContainer.createEJBContainer();
     }
 
 
-    @AfterClass
+    @AfterAll
     public static void stop() {
         if(container != null) {
             container.close();

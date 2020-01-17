@@ -16,36 +16,38 @@
  */
 package com.github.aneveux.cryptovery.dao;
 
-import com.github.aneveux.cryptovery.dao.UserDAO;
-import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
-import org.apache.tomee.embedded.EmbeddedTomEEContainer;
-import org.apache.ziplock.Archive;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import com.github.aneveux.cryptovery.model.User;
+import static org.apache.openejb.loader.JarLocation.jarLocation;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import com.github.aneveux.cryptovery.model.User;
+import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import java.io.File;
-import java.io.IOException;
-import java.util.Properties;
-
-import static org.apache.openejb.loader.JarLocation.jarLocation;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
+import org.apache.tomee.embedded.EmbeddedTomEEContainer;
+import org.apache.ziplock.Archive;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class UserServiceTest {
 
     private static EJBContainer container;
 
-    @BeforeClass
-    public static void start() throws IOException {
-        final File webApp = Archive.archive().copyTo("WEB-INF/classes", jarLocation(UserDAO.class)).asDir();
+
+    @BeforeAll
+    public static void start()
+        throws IOException {
+        final File webApp = Archive.archive()
+                                   .copyTo("WEB-INF/classes", jarLocation(UserDAO.class))
+                                   .asDir();
         final Properties p = new Properties();
         p.setProperty(EJBContainer.APP_NAME, "cryptovery");
         p.setProperty(EJBContainer.PROVIDER, "tomee-embedded"); // need web feature
@@ -54,20 +56,26 @@ public class UserServiceTest {
         container = EJBContainer.createEJBContainer(p);
     }
 
-    @AfterClass
+
+    @AfterAll
     public static void stop() {
-        if (container != null) {
+        if(container != null) {
             container.close();
         }
     }
 
+
     @Test
-    public void create() throws NamingException {
-        final UserDAO dao = (UserDAO) container.getContext().lookup("java:global/cryptovery/UserDAO");
+    public void create()
+        throws NamingException {
+        final UserDAO dao = (UserDAO) container.getContext()
+                                               .lookup("java:global/cryptovery/UserDAO");
         final User user = dao.create("foo", "dummy", "foo@dummy.org");
         assertNotNull(dao.find(user.getId()));
 
-        final String uri = "http://127.0.0.1:" + System.getProperty(EmbeddedTomEEContainer.TOMEE_EJBCONTAINER_HTTP_PORT) + "/cryptovery";
+        final String uri =
+            "http://127.0.0.1:" + System.getProperty(EmbeddedTomEEContainer.TOMEE_EJBCONTAINER_HTTP_PORT) +
+            "/cryptovery";
         final UserServiceClientAPI client = JAXRSClientFactory.create(uri, UserServiceClientAPI.class);
         final User retrievedUser = client.show(user.getId());
         assertNotNull(retrievedUser);
@@ -75,6 +83,7 @@ public class UserServiceTest {
         assertEquals("dummy", retrievedUser.getPassword());
         assertEquals("foo@dummy.org", retrievedUser.getEmail());
     }
+
 
     /**
      * a simple copy of the unique method i want to use from my service.

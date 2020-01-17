@@ -118,8 +118,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tomee.version>8.0.0-SNAPSHOT</tomee.version>
-        <version.openjpa>3.0.0</version.openjpa>
+        <!-- versions -->
+        <tomee.version>8.0.0</tomee.version>
+        <openjpa.version>3.0.0</openjpa.version>
+        <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <!-- other properties -->
         <sonar.projectKey>cryptovery</sonar.projectKey>
         <sonar.organization>aneveux-github</sonar.organization>
         <docker.buildArg.WAR_LOCATION>target/${project.build.finalName}.war</docker.buildArg.WAR_LOCATION>
@@ -131,13 +134,13 @@
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
+            <version>8.0-3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -192,7 +195,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.10</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <!-- sets the only.when.is.snapshot.used property to true if SNAPSHOT was used,
@@ -216,7 +219,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -236,7 +239,7 @@
             <!-- WAR CONFIGURATION -->
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.3</version>
                 <configuration>
                     <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
                 </configuration>
@@ -299,7 +302,7 @@
             <!-- ATTACHING SOURCE JAR WHEN PACKAGING -->
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -313,7 +316,7 @@
             <!-- ATTACHING JAVADOC JAR WHEN PACKAGING + MARKDOWN JAVADOC -->
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.1.1</version>
                 <configuration>
                     <doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
                     <docletArtifact>
@@ -337,7 +340,7 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-maven-plugin</artifactId>
-                <version>4.0.0-M2</version>
+                <version>4.3.1</version>
                 <configuration>
                     <images>
                         <image>
