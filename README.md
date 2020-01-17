@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/aneveux/cryptovery.svg?branch=master)](https://travis-ci.org/aneveux/project-tooling-sample)
+[![Build Status](https://travis-ci.org/aneveux/cryptovery.svg?branch=master)](https://travis-ci.org/aneveux/cryptovery)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cryptovery&metric=alert_status)](https://sonarcloud.io/dashboard?id=cryptovery)
 [ ![Download](https://api.bintray.com/packages/aneveux/maven/cryptovery/images/download.svg) ](https://bintray.com/aneveux/maven/cryptovery/_latestVersion)
 ![](https://img.shields.io/docker/pulls/aneveux/cryptovery.svg?style=flat)
@@ -38,7 +38,7 @@ This project is used as a resource for an university training session.
 ## Useful commands
 
 - `mvn license:format` - updates licenses' headers on all files
-- `mvn tomee:run` - starts a local tomee server with the project (accessible at `http://localhost:8080/rest-example/`)
-- `docker build . -t test/rest-example:latest --build-arg WAR_LOCATION=target/rest-example.war` - builds locally a docker image from the `Dockerfile`
-- `docker run -p 8888:8080 test/rest-example:latest` - runs the previously built docker image (accessible at `http://localhost:8888/rest-example`)
+- `mvn tomee:run` - starts a local tomee server with the project (accessible at `http://localhost:8080/cryptovery/`)
+- `docker build . -t aneveux/cryptovery:latest --build-arg WAR_LOCATION=target/cryptovery.war` - builds locally a docker image from the `Dockerfile`
+- `docker run -p 8888:8080 aneveux/cryptovery:latest` - runs the previously built docker image (accessible at `http://localhost:8888/cryptovery`)
 - `mvn clean package fabric8:build` - builds a docker image directly from Maven using your Dockerfile and the result of your Maven build
